@@ -1,6 +1,6 @@
 {
   "name": "qs2el",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Create elements from query selector strings.",
   "main": "index.js",
   "scripts": {
