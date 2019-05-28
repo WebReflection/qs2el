@@ -1,0 +1,29 @@
+{
+  "name": "qs2el",
+  "version": "0.0.0",
+  "description": "Create elements from query selector strings.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run cjs && npm run esm && npm run min && npm test && npm run size",
+    "cjs": "cp index.js cjs/ && echo 'module.exports = qs2el;' >> cjs/index.js",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "esm": "cp index.js esm/ && echo 'export default qs2el;' >> esm/index.js",
+    "min": "echo '/*! (c) Andrea Giammarchi - ISC */' > min.js && uglifyjs index.js -c -m >> min.js",
+    "size": "cat index.js | wc -c;cat min.js | wc -c;gzip -c9 min.js | wc -c",
+    "test": "istanbul cover test/index.js"
+  },
+  "keywords": [
+    "query",
+    "selector",
+    "element",
+    "transform"
+  ],
+  "author": "Andrea Giammarchi",
+  "license": "ISC",
+  "devDependencies": {
+    "basichtml": "^0.22.1",
+    "coveralls": "^3.0.3",
+    "istanbul": "^0.4.5",
+    "uglify-js": "^3.5.15"
+  }
+}
