@@ -19,7 +19,7 @@ The exported function also have an `.escape(value)` to safely parse text that mi
 
 ```js
 const value = 'this [might] be an issue';
-const div = qs2el`div[data-blob=${qs2el(value)}]`;
+const div = qs2el`div[data-blob=${qs2el.escape(value)}]`;
 
 div.dataset.blob === value; // true
 ```
