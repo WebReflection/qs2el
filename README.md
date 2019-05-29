@@ -14,3 +14,12 @@ const a = qs2el('a#home.special[data-page=home]');
 // or as literal
 const button = qs2el`button${'.primary'}[disabled]`;
 ```
+
+The exported function also have an `.escape(value)` to safely parse text that might contain `[` or `]` chars.
+
+```js
+const value = 'this [might] be an issue';
+const div = qs2el`div[data-blob=${qs2el(value)}]`;
+
+div.dataset.blob === value; // true
+```
